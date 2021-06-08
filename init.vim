@@ -1,7 +1,9 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'davidhalter/jedi-vim'
-Plug 'scrooloose/nerdtree'
+plug 'davidhalter/jedi-vim'
+plug 'scrooloose/nerdtree'
+plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-surround'
 
 call plug#end()
 

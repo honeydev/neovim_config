@@ -1,0 +1,13 @@
+# Vim surround
+https://github.com/tpope/vim-surround
+
+If you type S(, it will be surrounded by spaces. However if you use the closing ) instead S) it will not be surrounded by spaces.
+
+This applies of course to all bracket pair surroundings, <> [] {} (), not merely to (), although the behavior of S< is such that it expects a tag enclosure so only S> is able to surround as <>.:
+
+
+# clipboard
+
+выбрать текст в визуальном режиме (v, V, C-v) и скопировать командой "+y (поочереди нажимаешь ", +, y)
+может, и без визуального выделания можно, но я не вкурсе как.
+а еще, если мешают именно номера строк, то можно их временно отключить (:set nonumber) ;)
