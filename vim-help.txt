@@ -11,3 +11,17 @@ This applies of course to all bracket pair surroundings, <> [] {} (), not merely
 выбрать текст в визуальном режиме (v, V, C-v) и скопировать командой "+y (поочереди нажимаешь ", +, y)
 может, и без визуального выделания можно, но я не вкурсе как.
 а еще, если мешают именно номера строк, то можно их временно отключить (:set nonumber) ;)
+
+
+# exit from :term
+<Esc> <C-\><C-n>
+
+# resize split size
+# horizontal
+:res +5
+:res -5
+
+
+# vertical 
+:vertical resize +5
+:vertical resize -5
