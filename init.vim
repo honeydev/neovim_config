@@ -28,6 +28,18 @@ set background=dark
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set termguicolors
 set number
+
+set tabstop=4       " The width of a TAB is set to 4.
+                    " Still it is a \t. It is just that
+                    " Vim will interpret it to be having
+                    " a width of 4.
+
+set shiftwidth=4    " Indents will have a width of 4
+
+set softtabstop=4   " Sets the number of columns for a TAB
+
+set expandtab       " Expand TABs to spaces
+
 autocmd VimEnter * NERDTree
 let g:LanguageClient_serverCommands = {
     \ 'ruby': ['~/.asdf/shims/solargraph', 'stdio'],
