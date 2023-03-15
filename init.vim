@@ -3,6 +3,11 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'mfussenegger/nvim-dap'
 "Color scheme
 Plug 'arcticicestudio/nord-vim'
+Plug 'Rigellute/shades-of-purple.vim'
+"vim airline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'nvim-tree/nvim-web-devicons'
 "scala plugins
 Plug 'scalameta/nvim-metals'
 "Plug 'mfussenegger/nvim-dap' ruby plugins
@@ -84,9 +89,12 @@ nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 "color scheme activate
-colorscheme nord
-
+colorscheme shades_of_purple
+let g:shades_of_purple_airline = 1
+let g:airline_theme='shades_of_purple'
+let g:airline#extensions#tabline#enabled = 1
 "-----------------------------------------------------------------------------
 " nvim-lsp Mappings
 "-----------------------------------------------------------------------------
@@ -215,9 +223,12 @@ require("lspconfig").pylsp.setup{}
 EOF
 
 set completeopt-=preview
+
 :lua << EOF
 require("telescope").setup{  defaults = { file_ignore_patterns = { "node_modules", "venv"}} }
 EOF
+
+
 " use omni completion provided by lsp
 autocmd Filetype python setlocal omnifunc=v:lua.vim.lsp.omnifunc
 
