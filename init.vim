@@ -11,6 +11,7 @@ Plug 'nvim-tree/nvim-web-devicons'
 "scala plugins
 Plug 'scalameta/nvim-metals'
 "Plug 'mfussenegger/nvim-dap' ruby plugins
+Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
 Plug 'slim-template/vim-slim'
@@ -126,7 +127,7 @@ nnoremap <silent> <leader>dl  <cmd>lua require("dap").run_last()<CR>
 " nvim-lsp Settings
 "-----------------------------------------------------------------------------
 " If you just use the latest stable version, then setting this isn't necessary
-let g:metals_server_version = '0.11.9+176-8a27cb58-SNAPSHOT'
+" let g:metals_server_version = '0.11.9+176-8a27cb58-SNAPSHOT'
 
 "-----------------------------------------------------------------------------
 " nvim-metals setup with a few additions such as nvim-completions
@@ -219,7 +220,11 @@ autocmd FileType scala setlocal omnifunc=v:lua.vim.lsp.omnifunc
 " Avoid showing message extra message when using completion
 set shortmess+=c
 lua << EOF
-require("lspconfig").pylsp.setup{}
+local lsp = require "lspconfig"
+local coq = require "coq" -- add this
+
+lsp.pylsp.setup{}
+lsp.pylsp.setup(coq.lsp_ensure_capabilities())
 EOF
 
 set completeopt-=preview
@@ -227,6 +232,7 @@ set completeopt-=preview
 :lua << EOF
 require("telescope").setup{  defaults = { file_ignore_patterns = { "node_modules", "venv"}} }
 EOF
+
 
 
 " use omni completion provided by lsp
