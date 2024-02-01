@@ -122,7 +122,7 @@ nnoremap <silent> <leader>dt  <cmd>lua require("dap").toggle_breakpoint()<CR>
 nnoremap <silent> <leader>dso <cmd>lua require("dap").step_over()<CR>
 nnoremap <silent> <leader>dsi <cmd>lua require("dap").step_info()<CR>
 nnoremap <silent> <leader>dl  <cmd>lua require("dap").run_last()<CR>
-
+nnoremap <silent> <leader>se  <cmd>lua vim.diagnostic.open_float()<CR>
 
 "-----------------------------------------------------------------------------
 " nvim-lsp Settings
@@ -156,10 +156,10 @@ require("neoconf").setup({
   metals_config.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, {
       virtual_text = {
-        spacing = 7,
+        spacing = 2,
         prefix = " 🔥 ",
-        virt_text_pos = "overlay",
-        source = "always"
+        -- virt_text_pos = "overlay",
+        -- source = "always"
       }
     }
   )
